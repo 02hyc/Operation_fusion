@@ -109,3 +109,5 @@ TensorFlow Lite 通常会在转换过程中自动将批量标准化层与前面�
 `main.py` 集合了上述流程，并将`两个模型的预测结果是否一致`输出到控制台
 
 `saved_model_one` 到 `saved_model_five` 分别存储了模型一到五，使用 `saved_model_cli show --dir .\saved_model_one\ --all` 命令可以查看。
+
+`log_1.txt` 到  `log_5.txt` 中存储了差分测试过程中两种模型的预测结果。
