@@ -23,8 +23,8 @@ for i in range(len(model_list)):
 
     # 执行差分测试
     tf_pred, tflite_pred = dt.differential_testing(model, tflite_model, test_data)
-    for i in range(len(tf_pred)):
-        print(f"{i+1} - TensorFlow: {tf_pred[i]}, TensorFlow Lite: {tflite_pred[i]}")
+    for j in range(len(tf_pred)):
+        print(f"{j+1} - TensorFlow: {tf_pred[j]}, TensorFlow Lite: {tflite_pred[j]}")
 
     # 判断两个模型的输出是否一致
     consistent = np.allclose(tf_pred, tflite_pred, atol=1e-05)

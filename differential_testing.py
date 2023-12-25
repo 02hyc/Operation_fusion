@@ -14,11 +14,11 @@ def differential_testing(tf_model, tflite_model_content, input_data):
     tflite_preds = []
     for i in range(input_data.shape[0]):
         # TensorFlow 预测
-        tf_pred = tf_model.predict(input_data[i:i+1])
+        tf_pred = tf_model.predict(input_data[i:i + 1])
         tf_preds.append(tf_pred)
 
         # TensorFlow Lite 预测
-        interpreter.set_tensor(input_index, input_data[i:i+1])
+        interpreter.set_tensor(input_index, input_data[i:i + 1])
         interpreter.invoke()
         tflite_pred = interpreter.get_tensor(output_index)
         tflite_preds.append(tflite_pred)
