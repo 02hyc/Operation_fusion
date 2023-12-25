@@ -1,4 +1,4 @@
-from fusion_operators import Conv2DBiasAdd, Conv2DBatchNorm, DepthwisePointwiseConv, SigmoidCrossEntropyModel
+from fusion_operators import Conv2DBiasAdd, Conv2DBatchNorm, DepthwisePointwiseConv, SigmoidCrossEntropyModel, LeakyReLU_MaxPooling
 import tensorflow as tf
 import numpy as np
 
@@ -41,6 +41,18 @@ def create_sigmoid_crossentropy_model():
                   loss=tf.keras.losses.BinaryCrossentropy(from_logits=True))
     model.predict(np.random.rand(1, 28, 28, 1))
     return model
+
+def create_leaky_relu_max_pooling_model():
+    model = tf.keras.models.Sequential([
+        tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)),
+        LeakyReLU_MaxPooling(),
+        tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+        tf.keras.layers.Flatten(),
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(10, activation='softmax')  # 假设是一个10类分类问题
+    ])
+    return model
+
 
 
 

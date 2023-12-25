@@ -48,3 +48,15 @@ class SigmoidCrossEntropyModel(tf.keras.Model):
     def call(self, inputs):
         x = self.input_layer(inputs)
         return self.dense(x)
+
+
+class LeakyReLU_MaxPooling(tf.keras.layers.Layer):
+    def __init__(self):
+        super(LeakyReLU_MaxPooling, self).__init__()
+        self.leaky_relu = tf.keras.layers.LeakyReLU()
+        self.max_pool = tf.keras.layers.MaxPooling2D(pool_size=(2, 2))
+
+    @tf.function(experimental_implements="LeakyReLU_MaxPooling")
+    def call(self, inputs):
+        x = self.leaky_relu(inputs)
+        return self.max_pool(x)

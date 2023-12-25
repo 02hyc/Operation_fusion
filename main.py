@@ -5,7 +5,7 @@ import differential_testing as dt
 import tensorflow as tf
 
 
-model_list = ["saved_model_one", "saved_model_two", "saved_model_three", "saved_model_four"]
+model_list = ["saved_model_one", "saved_model_two", "saved_model_three", "saved_model_four", "saved_model_five"]
 model_creation_methods = [getattr(mc, m) for m in dir(mc) if callable(getattr(mc, m)) and m.startswith('create_')]
 
 
