@@ -100,6 +100,8 @@ TensorFlow Lite 通常会在转换过程中自动将批量标准化层与前面�
 - Sigmoid + Cross Entropy Loss
 - ReLU or Leaky ReLU + Max Pooling
 
+同时，我们设计的这套框架工具具有很强的可扩展性，用户可以根据框架结构自行添加其他等价融合算子进行相关测试。
+
 ### 1.fusion_operators.py
 
 自定义融合运算：定义了五个使用TensorFlow进行神经网络操作的自定义层。
